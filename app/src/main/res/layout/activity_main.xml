@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="35dp"
+    tools:context=".MainActivity">
+
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="250dp"
+        >
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Btn_Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/White"
+        android:hint="@string/Button_collaborators"
+        android:backgroundTint="@color/Gray"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-black"
+        />
+
+</com.google.android.material.button.MaterialButtonToggleGroup>
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="100dp"
+        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegistrer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/Gray"
+            android:textColorHint="@color/White"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:hint="@string/Add_collaborators"
+           />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

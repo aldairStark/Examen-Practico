@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ExamenFireBase</string>
+    <string name="title_activity_location_map">Map</string>
+    <string name="edtUserName">Introduce tu nombre de Usuario</string>
+    <string name="EdtUser">Usuario</string>
+    <string name="EdtPass">Contraseña</string>
+    <string name="NameRegistrer">Ingresa tu Nombre</string>
+    <string name="SecondName">Ingresa tus Apellidos</string>
+    <string name="Button_Login">Entrar</string>
+    <string name="Registrer">Registrate</string>
+    <string name="SendMail">Ingresa tu Email</string>
+    <string name="SendPass">Ingresa tu Contraseña</string>
+    <string name="Button_Registrer">Enviar</string>
+    <string name="TextRegistrer">Registro de Usuarios</string>
+    <string name="EdEmail">Email</string>
+    <string name="Button_collaborators">MIS COLABORADORES</string>
+    <string name="Add_collaborators">AGREGAR COLABORADORES</string>
+    <string name="fieldEmpty">Campo Obligatorio</string>
+</resources>

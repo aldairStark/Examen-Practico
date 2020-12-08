@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#EAEDED</color>
+
+    <color name="colorAccent">#CCD1D1 </color>
+    <color name="Orange">#E59866</color>
+    <color name="colorfont1"> #FDF2E9 </color>
+    <color name="colorfont2"> #F6DDCC </color>
+    <color name="buttonColorSalmon"> #F5B7B1 </color>
+    <color name="Gray">#566573</color>
+    <color name="White">#ECF0F1</color>
+
+
+</resources>
