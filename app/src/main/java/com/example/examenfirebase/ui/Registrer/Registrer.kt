@@ -54,9 +54,7 @@ class Registrer : AppCompatActivity() {
 
 
         Btn_SendRegistrer.setOnClickListener({
-            if (completedForm()){
                 createNewUser()
-            }
 
         })
 
@@ -68,7 +66,7 @@ class Registrer : AppCompatActivity() {
        val email = txtEmailUser.text.toString()
        val password = txtPasswordUser.text.toString()
 
-       if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(lastname) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) ){
+       if (completedForm()){
             progressBar.visibility= View.VISIBLE
 
            auth.createUserWithEmailAndPassword(email,password)
@@ -77,24 +75,27 @@ class Registrer : AppCompatActivity() {
                    if (task.isComplete){
                        val user:FirebaseUser?=auth.currentUser
                        SendEmailVerify(user)
-                       val userBD=dbReference.child(user!!.uid)
-                       userBD.child("Name").setValue(name)
-                       userBD.child("LastName").setValue(name)
+
+                       val userBD= user?.uid?.let {dbReference.child(it)}
+                       userBD?.child("Name")?.setValue(name)
+                       userBD?.child("LastName")?.setValue(lastname)
+                       userBD?.child("Email")?.setValue(email)
+                       userBD?.child("Pass")?.setValue(password)
                        ActionRegistrer()
                    }
                }
        }
    }
     private fun ActionRegistrer(){
-        startActivity(Intent(MyApp.instance,login::class.java))
+        startActivity(Intent(this,login::class.java))
     }
     private fun SendEmailVerify(user: FirebaseUser?){
             user?.sendEmailVerification()?.addOnCompleteListener(this){
                 task ->
                 if (task.isComplete){
-                    Toast.makeText(MyApp.instance,"Email enviado correctamente",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Email enviado correctamente",Toast.LENGTH_SHORT).show()
                 }else{
-                    Toast.makeText(MyApp.instance,"Error al enviar Email",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Error al enviar Email",Toast.LENGTH_SHORT).show()
                 }
             }
     }
