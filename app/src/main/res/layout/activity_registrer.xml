@@ -10,10 +10,12 @@
     tools:context=".ui.Registrer.Registrer">
 
     <ProgressBar
-        android:id="@+id/progressBar2"
+        android:id="@+id/prgB_registrer"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:indeterminate="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:background="@color/colorAccent"

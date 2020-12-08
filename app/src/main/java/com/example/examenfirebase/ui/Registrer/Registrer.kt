@@ -3,16 +3,21 @@ package com.example.examenfirebase.ui.Registrer
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.KeyEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.examenfirebase.MainActivity
 import com.example.examenfirebase.R
 import com.example.examenfirebase.common.MyApp
+import com.example.examenfirebase.ui.Login.login
+import com.google.android.gms.dynamic.IFragmentWrapper
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_login.*
@@ -40,29 +45,59 @@ class Registrer : AppCompatActivity() {
         txtLastNameUser=findViewById(R.id.edtUserLastName)
         txtEmailUser=findViewById(R.id.edtUserMail)
         txtPasswordUser=findViewById(R.id.edtUserPass)
-        progressBar=ProgressBar(this)
+        progressBar=findViewById(R.id.prgB_registrer)
 
         database= FirebaseDatabase.getInstance()
         auth= FirebaseAuth.getInstance()
         dbReference=database.reference.child("User")
 
 
+
         Btn_SendRegistrer.setOnClickListener({
             if (completedForm()){
-                val intent =Intent(applicationContext,MainActivity::class.java)
-                startActivity(intent)
+                createNewUser()
             }
 
         })
 
 
     }
-    fun registrer(view: View){
-
-    }
    private fun createNewUser(){
-       var name = txtNameUser.text.toString()
+       val name = txtNameUser.text.toString()
+       val lastname = txtLastNameUser.text.toString()
+       val email = txtEmailUser.text.toString()
+       val password = txtPasswordUser.text.toString()
+
+       if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(lastname) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) ){
+            progressBar.visibility= View.VISIBLE
+
+           auth.createUserWithEmailAndPassword(email,password)
+               .addOnCompleteListener(this){
+                   task ->
+                   if (task.isComplete){
+                       val user:FirebaseUser?=auth.currentUser
+                       SendEmailVerify(user)
+                       val userBD=dbReference.child(user!!.uid)
+                       userBD.child("Name").setValue(name)
+                       userBD.child("LastName").setValue(name)
+                       ActionRegistrer()
+                   }
+               }
+       }
    }
+    private fun ActionRegistrer(){
+        startActivity(Intent(MyApp.instance,login::class.java))
+    }
+    private fun SendEmailVerify(user: FirebaseUser?){
+            user?.sendEmailVerification()?.addOnCompleteListener(this){
+                task ->
+                if (task.isComplete){
+                    Toast.makeText(MyApp.instance,"Email enviado correctamente",Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(MyApp.instance,"Error al enviar Email",Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
     fun completedForm():Boolean{
         if (edtName.text.isNullOrBlank()) edtName.error = getString(R.string.fieldEmpty)
         if (edtUserLastName.text.isNullOrBlank()) edtUserLastName.error = getString(R.string.fieldEmpty)
