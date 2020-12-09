@@ -17,9 +17,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.Task
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_employees_registrer.*
 
 
@@ -68,6 +66,7 @@ class EmployeesRegistrer : AppCompatActivity() {
         })
     }
     private fun SendEmployees(){
+        getLastLocation()
         val employName:String=txtNameEmploy.text.toString()
         val employEmail=txtEmailEmploy.text.toString()
         if (completeForm()){
@@ -78,17 +77,16 @@ class EmployeesRegistrer : AppCompatActivity() {
             val location=Location(lat.toString(),log.toString())
 
              val ref =FirebaseDatabase.getInstance().getReference("data")
-            val emploDBref=FirebaseDatabase.getInstance().getReference("employees")
-
             val employId:Int = ref.push().hashCode()
             val employees = Employees(employId,employName,employEmail,location)
-            ref.child(employId.toString()).setValue(employees).addOnCompleteListener(this){
-                task ->
-                if (task.isComplete){
-                    Toast.makeText(this,"DATOS GUARDADOS EXITOSAMENTE",Toast.LENGTH_SHORT).show()
-                    ActionSendEmploy()
-                }
-            }
+
+           ref.child("employees").child(employId.toString()).setValue(employees).addOnCompleteListener(this){
+               task ->
+               if (task.isComplete){
+                   Toast.makeText(this,"DATOS GUARDADOS EXITOSAMENTE",Toast.LENGTH_SHORT).show()
+                   ActionSendEmploy()
+               }
+           }
 
 
         }
