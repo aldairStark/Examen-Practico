@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorfont2"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:padding="20dp"
         android:orientation="vertical">
         <com.airbnb.lottie.LottieAnimationView
@@ -35,7 +35,7 @@
             android:id="@+id/Lyt_User"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Edt_User"

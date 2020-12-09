@@ -60,6 +60,7 @@ class login : AppCompatActivity() {
                 task ->
                 if (task.isSuccessful){
                     SuccessLogin()
+                    progresBar.visibility=View.INVISIBLE
                 }else{
                     Toast.makeText(this,"Error al ingresar",Toast.LENGTH_SHORT).show()
                     progresBar.visibility=View.INVISIBLE

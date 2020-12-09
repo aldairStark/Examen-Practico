@@ -49,7 +49,7 @@
             android:backgroundTint="@color/Gray"
             android:textColorHint="@color/White"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:hint="@string/Add_collaborators"
            />
     </com.google.android.material.button.MaterialButtonToggleGroup>

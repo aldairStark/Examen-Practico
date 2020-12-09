@@ -1,4 +1,3 @@
 package com.example.examenfirebase.ui.Registrer
 
-class Location {
-}
+class Location(val latitude:String, val longitud:String)

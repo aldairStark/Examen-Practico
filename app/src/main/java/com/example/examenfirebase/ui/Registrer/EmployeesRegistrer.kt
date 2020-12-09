@@ -16,8 +16,10 @@ import com.example.examenfirebase.R
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_employees_registrer.*
 
 
@@ -29,8 +31,9 @@ class EmployeesRegistrer : AppCompatActivity() {
     private lateinit var dbReference: DatabaseReference
     private lateinit var database: FirebaseDatabase
     private lateinit var progressBar: ProgressBar
+    private var maxid:Int = 0
     //location
-    private var lat:String ?=null
+    private  var lat:String ?=null
     private  var log:String ?=null
      private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     lateinit var locationRequest: LocationRequest
@@ -42,7 +45,7 @@ class EmployeesRegistrer : AppCompatActivity() {
         setContentView(R.layout.activity_employees_registrer)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-
+        getLastLocation()
         txtNameEmploy=findViewById(R.id.edtNameEmploy)
         txtEmailEmploy=findViewById(R.id.edtEmailEmploy)
         progressBar=findViewById(R.id.progressBarEmploy)
@@ -50,14 +53,47 @@ class EmployeesRegistrer : AppCompatActivity() {
         database=FirebaseDatabase.getInstance()
         dbReference=database.reference.child("data")
 
+
         btnSendEmploy.setOnClickListener({
-                getLastLocation()
+            getLastLocation()
+
+            println("------------------------------------------")
+            println(lat)
+            println(log)
+            println("------------------------------------------")
             if ( completeForm()){
-               ActionSendEmploy()
+                SendEmployees()
+
             }
         })
     }
-    private fun getLastLocation(){
+    private fun SendEmployees(){
+        val employName:String=txtNameEmploy.text.toString()
+        val employEmail=txtEmailEmploy.text.toString()
+        if (completeForm()){
+            println("****************************************************************")
+            println(lat)
+            println(log)
+            println("****************************************************************")
+            val location=Location(lat.toString(),log.toString())
+
+             val ref =FirebaseDatabase.getInstance().getReference("data")
+            val emploDBref=FirebaseDatabase.getInstance().getReference("employees")
+
+            val employId:Int = ref.push().hashCode()
+            val employees = Employees(employId,employName,employEmail,location)
+            ref.child(employId.toString()).setValue(employees).addOnCompleteListener(this){
+                task ->
+                if (task.isComplete){
+                    Toast.makeText(this,"DATOS GUARDADOS EXITOSAMENTE",Toast.LENGTH_SHORT).show()
+                    ActionSendEmploy()
+                }
+            }
+
+
+        }
+    }
+     fun getLastLocation(){
         if(checkPermission()){
             if (isLocationEnabled()){
                     fusedLocationProviderClient.lastLocation.addOnCompleteListener(this){
@@ -66,9 +102,10 @@ class EmployeesRegistrer : AppCompatActivity() {
                         if (location == null){
                         }else{
                             println(location.latitude)
-                            println(location.latitude)
+                            println(location.longitude)
                            lat = location.latitude.toString()
                            log = location.longitude.toString()
+
                         }
                     }
             }else {
@@ -77,6 +114,7 @@ class EmployeesRegistrer : AppCompatActivity() {
         }else{
             RequestPermission()
         }
+
     }
 
     private fun ActionSendEmploy(){
