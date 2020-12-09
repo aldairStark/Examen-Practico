@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.examenfirebase"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -58,6 +58,8 @@ dependencies {
     // Retrofit conversor for Gson
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     // okthttp
-    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.5.0'
+    //location
+    implementation 'com.google.android.gms:play-services-location:17.1.0'
 }
