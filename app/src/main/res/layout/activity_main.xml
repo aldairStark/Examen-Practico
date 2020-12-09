@@ -22,7 +22,7 @@
         android:layout_marginTop="250dp"
         >
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/Btn_Login"
+        android:id="@+id/btnMyEmploy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/White"
@@ -43,7 +43,7 @@
         android:layout_marginTop="100dp"
         >
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRegistrer"
+            android:id="@+id/btnRegistrerEmploy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/Gray"
