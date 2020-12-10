@@ -1,4 +1,4 @@
-package com.example.examenfirebase.ui
+package com.example.examenfirebase.ui.location
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.examenfirebase.ui.Registrer.EmployeesRegistrer
+import com.example.examenfirebase.ui.interfaces.EmployeesRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,8 +20,9 @@ class MainActivity : AppCompatActivity() {
     }
     private fun ActionEmploy(){
         startActivity(Intent(this,EmployeesRegistrer::class.java))
+
     }
     private fun ActionListEmploy(){
-        startActivity(Intent(this,EmployeesRegistrer::class.java))
+        startActivity(Intent(this,EmployeesRecyclerView::class.java))
     }
 }

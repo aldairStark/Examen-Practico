@@ -16,4 +16,6 @@
     <string name="Button_collaborators">MIS COLABORADORES</string>
     <string name="Add_collaborators">AGREGAR COLABORADORES</string>
     <string name="fieldEmpty">Campo Obligatorio</string>
+    <string name="Name">Nombre</string>
+    <string name="Mail">Mail</string>
 </resources>

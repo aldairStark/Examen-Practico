@@ -13,10 +13,10 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.examenfirebase.MainActivity
 import com.example.examenfirebase.R
+import com.example.examenfirebase.ui.Employees.Employees
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.tasks.Task
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_employees_registrer.*
 
@@ -74,11 +74,19 @@ class EmployeesRegistrer : AppCompatActivity() {
             println(lat)
             println(log)
             println("****************************************************************")
-            val location=Location(lat.toString(),log.toString())
+            val location= com.example.examenfirebase.ui.location.Location(
+                lat.toString(),
+                log.toString()
+            )
 
              val ref =FirebaseDatabase.getInstance().getReference("data")
             val employId:Int = ref.push().hashCode()
-            val employees = Employees(employId,employName,employEmail,location)
+            val employees = Employees(
+                employId,
+                employName,
+                employEmail,
+                location
+            )
 
            ref.child("employees").child(employId.toString()).setValue(employees).addOnCompleteListener(this){
                task ->

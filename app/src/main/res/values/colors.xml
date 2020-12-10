@@ -9,6 +9,9 @@
     <color name="buttonColorSalmon"> #F5B7B1 </color>
     <color name="Gray">#566573</color>
     <color name="White">#ECF0F1</color>
+    <color name="Black1">#1C2833</color>
+    <color name="Black2">#283747 </color>
+
 
 
 </resources>

@@ -41,7 +41,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".ui.LocationMap"
+            android:name=".ui.location.LocationMap"
             android:label="@string/title_activity_location_map" />
         <activity android:name=".MainActivity" />
         <activity
