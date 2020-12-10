@@ -17,7 +17,7 @@ class Repository {
 
         val mutableData= MutableLiveData<MutableList<EmployData>>()
         database = Firebase.database.reference
-       FirebaseDatabase.getInstance().getReference("data").child("employees")
+       FirebaseDatabase.getInstance().getReference("data").child("employees").orderByChild("location/lat")
            .addValueEventListener(object : ValueEventListener{
            val listData = mutableListOf<EmployData>()
             override fun onCancelled(error: DatabaseError) {

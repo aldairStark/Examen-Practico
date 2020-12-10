@@ -3,6 +3,8 @@ package com.example.examenfirebase
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toolbar
+import com.example.examenfirebase.components.MenuToolbar
 import com.example.examenfirebase.ui.Registrer.EmployeesRegistrer
 import com.example.examenfirebase.ui.interfaces.EmployeesRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -11,6 +13,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+    MenuToolbar().Show(this,"Prueba Aldair",false)
+
         btnMyEmploy.setOnClickListener({
             ActionListEmploy()
         })

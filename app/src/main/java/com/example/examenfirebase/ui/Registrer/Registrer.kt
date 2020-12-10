@@ -10,10 +10,12 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import com.example.examenfirebase.MainActivity
 import com.example.examenfirebase.R
 import com.example.examenfirebase.common.MyApp
+import com.example.examenfirebase.components.MenuToolbar
 import com.example.examenfirebase.ui.Login.login
 import com.google.android.gms.dynamic.IFragmentWrapper
 import com.google.firebase.auth.FirebaseAuth
@@ -40,7 +42,7 @@ class Registrer : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrer)
-
+        MenuToolbar().Show(this,"Registro Usuarios",false)
         txtNameUser=findViewById(R.id.edtName)
         txtLastNameUser=findViewById(R.id.edtUserLastName)
         txtEmailUser=findViewById(R.id.edtUserMail)

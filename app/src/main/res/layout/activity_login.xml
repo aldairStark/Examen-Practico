@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorfont1"
+    android:background="@color/Gray2"
     android:padding="50px"
     tools:context=".ui.Login.login">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorfont2"
+        android:background="@color/Gray5"
         android:layout_marginTop="20dp"
         android:padding="20dp"
         android:orientation="vertical">
@@ -20,8 +20,8 @@
             android:id="@+id/animation_view"
             android:layout_width="wrap_content"
             android:layout_height="250dp"
-            app:lottie_imageAssetsFolder="lf30_editor_j9wlmb0w.json"
-            app:lottie_fileName="lf30_editor_j9wlmb0w.json"
+            app:lottie_imageAssetsFolder="38440-avatar.json"
+            app:lottie_fileName="38440-avatar.json"
             app:lottie_loop="true"
             app:lottie_autoPlay="true" />
         <com.google.android.material.textview.MaterialTextView
@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="serif-monospace"
             android:textSize="14sp"
+            android:textColorHint="@color/White"
             android:layout_gravity="center_horizontal"
             android:hint="Bienvenido al Examen Practico de Aldair"/>
         <com.google.android.material.textfield.TextInputLayout
@@ -83,17 +84,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/Button_Login"
-                android:backgroundTint="@color/Orange"
+                android:backgroundTint="@color/placeholder_bg"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:fontFamily="sans-serif-black"
                 />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRegistrer"
-                android:backgroundTint="@color/buttonColorSalmon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/Registrer"/>
+                android:backgroundTint="@color/Black2"
+                android:textColorHint="@color/White"
+                android:hint="@string/Registrer" />
 
 
         </com.google.android.material.button.MaterialButtonToggleGroup>

@@ -7,12 +7,14 @@ import android.location.Location
 import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.examenfirebase.MainActivity
 import com.example.examenfirebase.R
+import com.example.examenfirebase.components.MenuToolbar
 import com.example.examenfirebase.ui.Employees.Employees
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
@@ -41,7 +43,7 @@ class EmployeesRegistrer : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_employees_registrer)
-
+        MenuToolbar().Show(this,"Registro Coolaboradores",true)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         getLastLocation()
         txtNameEmploy=findViewById(R.id.edtNameEmploy)
@@ -60,6 +62,7 @@ class EmployeesRegistrer : AppCompatActivity() {
             println(log)
             println("------------------------------------------")
             if ( completeForm()){
+                progressBar.visibility= View.VISIBLE
                 SendEmployees()
 
             }
@@ -91,6 +94,7 @@ class EmployeesRegistrer : AppCompatActivity() {
            ref.child("employees").child(employId.toString()).setValue(employees).addOnCompleteListener(this){
                task ->
                if (task.isComplete){
+                   progressBar.visibility= View.GONE
                    Toast.makeText(this,"DATOS GUARDADOS EXITOSAMENTE",Toast.LENGTH_SHORT).show()
                    ActionSendEmploy()
                }

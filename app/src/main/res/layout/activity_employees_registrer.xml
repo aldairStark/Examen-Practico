@@ -5,55 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="30dp"
     tools:context=".ui.Registrer.EmployeesRegistrer">
+    <include
+        layout="@layout/action_bar_toolbar"
+        />
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="120dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtNameEmploy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/NameRegistrer"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtEmailEmploy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/SendMail"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSendEmploy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/Gray"
-                android:textColorHint="@color/White"
-                android:hint="enviar"/>
-        </com.google.android.material.button.MaterialButtonToggleGroup>
+        android:orientation="vertical"
+        android:padding="30dp">
 
-        <ProgressBar
-            android:id="@+id/progressBarEmploy"
-            style="?android:attr/progressBarStyle"
-            android:indeterminate="true"
-            android:visibility="gone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtNameEmploy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/NameRegistrer"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtEmailEmploy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/SendMail"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSendEmploy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Gray"
+                    android:textColorHint="@color/White"
+                    android:hint="enviar"/>
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <ProgressBar
+                android:id="@+id/progressBarEmploy"
+                style="?android:attr/progressBarStyle"
+                android:indeterminate="true"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-
 
 </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -15,16 +15,18 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.interfaces.EmployeesRecyclerView"></activity>
+        <activity android:name=".ui.interfaces.EmployeesRecyclerView"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".ui.interfaces.TestInterface" />
-        <activity android:name=".ui.Registrer.EmployeesRegistrer" />
-        <activity android:name=".ui.Registrer.Registrer" />
+        <activity android:name=".ui.Registrer.EmployeesRegistrer"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".ui.Registrer.Registrer"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -43,10 +45,11 @@
         <activity
             android:name=".ui.location.LocationMap"
             android:label="@string/title_activity_location_map" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            />
         <activity
             android:name=".ui.Login.login"
-            android:theme="@style/ThemeLog">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

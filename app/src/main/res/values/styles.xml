@@ -11,5 +11,9 @@
         <item name="colorAccent">@color/colorAccent</item>
 
     </style>
+    <style name="TolbarTheme"  parent ="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/White</item>
+        <item name="titleTextColor">@color/White</item>
+    </style>
 
 </resources>
