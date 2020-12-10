@@ -7,12 +7,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.examenfirebase.R
 import com.example.examenfirebase.retrofit.models.RecyclerViewClass.EmployData
-import com.example.examenfirebase.ui.location.Location
+import com.example.examenfirebase.retrofit.models.RecyclerViewClass.LocationData
 import kotlinx.android.synthetic.main.item_employees_view.view.*
 
-class RecyclerAdapterEmployess(private val context:Context):RecyclerView.Adapter<RecyclerAdapterEmployess.EmployViewHolder>() {
+class RecyclerAdapterEmployess(private val context:Context,private val onItemClick:OnClickItem):RecyclerView.Adapter<RecyclerAdapterEmployess.EmployViewHolder>() {
 private var dataList = mutableListOf<EmployData>()
+    private var dataLocat = mutableListOf<LocationData>()
 
+fun sentLocation(data: MutableList<LocationData>){
+    dataLocat=data
+}
 
 
 fun setListData(data:MutableList<EmployData> ){
@@ -37,29 +41,40 @@ fun setListData(data:MutableList<EmployData> ){
         holder.bindView(employData)
 
     }
-    inner class EmployViewHolder(itemView: View):RecyclerView.ViewHolder(itemView),View.OnClickListener{
+
+    inner class EmployViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+
         fun bindView(employData: EmployData){
+
+
+
             itemView.tvwNameEmploy.text=employData.name
             itemView.tvwEmailEmploy.text=employData.mail
+            /*
+          var lat = employData.location.log
+           var log = employData.location.lat
+           */
+            var name=employData.name.toString()
+            var mail=employData.name.toString()
+            itemView.setOnClickListener {
+                onItemClick.onItemClick(name,mail)
+            }
 
-            var Name=employData.name
-            var mail=employData.name
             println("$%$%&$%$&$%$%$&$%$%$%&$%&%$%$%$%$&%$%$%$%$&%$$$%$%$%$%$%$%$%$%$%$%%$%$%$%%$")
+            println(itemView.tvwNameEmploy.text)
           println(employData)
             println("$%$%&$%$&$%$%$&$%$%$%&$%&%$%$%$%$&%$%$%$%$&%$$$%$%$%$%$%$%$%$%$%$%%$%$%$%%$")
-        }
-        init{
-            itemView.setOnClickListener(this)
+        } fun bindLocation(employloc: LocationData){
+
+                itemView.setOnClickListener {
+                    onItemClick.onItemClick("","")
+                }
         }
 
-        override fun onClick(v: View?) {
-            TODO("Not yet implemented")
-        }
     }
-    interface OnItemClickListener{
-        fun OnItemClickListener(){
-
-        }
+    interface OnClickItem {
+        fun onItemClick(name:String,email:String)
+    }
     }
 
-}
+

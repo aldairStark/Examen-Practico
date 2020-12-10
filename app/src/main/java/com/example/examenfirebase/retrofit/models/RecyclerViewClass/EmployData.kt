@@ -4,4 +4,9 @@ import android.location.Location
 
 data class EmployData(
     val name:String ="DEFAULD NAME",
-    val mail:String ="DEFAULD EMAIL")
+        val mail:String="DEFAULT MAIL"
+
+   // var location: LocationData
+
+
+)

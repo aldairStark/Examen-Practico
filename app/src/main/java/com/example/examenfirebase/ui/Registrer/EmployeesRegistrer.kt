@@ -36,7 +36,6 @@ class EmployeesRegistrer : AppCompatActivity() {
     private  var lat:String ?=null
     private  var log:String ?=null
      private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    lateinit var locationRequest: LocationRequest
     private  var PERMISSION_ID = 80
 
 

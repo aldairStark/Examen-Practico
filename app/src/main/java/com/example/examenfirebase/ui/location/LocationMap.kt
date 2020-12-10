@@ -1,7 +1,9 @@
 package com.example.examenfirebase.ui.location
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.examenfirebase.R
 import com.example.examenfirebase.components.MenuToolbar
 
@@ -11,12 +13,14 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import java.io.ObjectInput
+import java.io.ObjectStreamException
 
 class LocationMap : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
 
-    private val Name ="Name Default"
+
     private val lat = 19.3879161
     private val long = -99.1042885
 
@@ -24,9 +28,11 @@ class LocationMap : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location_map)
+
         CreateMap()
 
-
+        var name:String?= intent?.getStringExtra("name")
+        Toast.makeText(this,"$name",Toast.LENGTH_SHORT).show()
     }
     private fun CreateMap(){
         val mapFragment = supportFragmentManager
@@ -34,8 +40,9 @@ class LocationMap : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
     override fun onMapReady(googleMap: GoogleMap) {
+        var name:String?= intent?.getStringExtra("name")
         mMap = googleMap
-        createMarkert(lat,long,Name)
+        createMarkert(lat,long,name.toString())
     }
 
     private fun createMarkert(lat:Double,long:Double,Name:String) {
