@@ -35,6 +35,9 @@
                     <include layout="@layout/item_row_load"/>
                     <include layout="@layout/item_row_load"/>
                     <include layout="@layout/item_row_load"/>
+                    <include layout="@layout/item_row_load"/>
+                    <include layout="@layout/item_row_load"/>
+                    <include layout="@layout/item_row_load"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </com.facebook.shimmer.ShimmerFrameLayout>
