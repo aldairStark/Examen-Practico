@@ -38,10 +38,11 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </com.facebook.shimmer.ShimmerFrameLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcyEmployees"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcyEmployees"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

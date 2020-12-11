@@ -8,79 +8,116 @@
     tools:context=".MainActivity">
 <include
     layout="@layout/action_bar_toolbar" />
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="35dp">
+        android:background="@color/Gray5">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayoutCompat"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="16815-mountain-icon-no-background.json"
+            app:lottie_imageAssetsFolder="16815-mountain-icon-no-background.json"
+            app:lottie_loop="true" />
+
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            >
-            <com.google.android.material.button.MaterialButtonToggleGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="200dp"
-                >
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMyEmploy"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/White"
-                    android:hint="@string/Button_collaborators"
-                    android:backgroundTint="@color/Gray"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:fontFamily="sans-serif-black"
-                    />
+            android:padding="35dp">
 
-            </com.google.android.material.button.MaterialButtonToggleGroup>
-            <com.google.android.material.button.MaterialButtonToggleGroup
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="100dp"
+                android:layout_height="match_parent"
+
                 >
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnRegistrerEmploy"
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/materialButtonToggleGroup2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/Gray"
-                    android:textColorHint="@color/White"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:hint="@string/Add_collaborators"
-                    />
-            </com.google.android.material.button.MaterialButtonToggleGroup>
-            <com.google.android.material.button.MaterialButtonToggleGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="50dp"
-                >
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/materialButtonToggleGroup">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnMyEmploy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/Gray"
+                        android:fontFamily="sans-serif-black"
+                        android:hint="@string/Button_collaborators"
+                        android:textColorHint="@color/White"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/materialButtonToggleGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/materialButtonToggleGroup3"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/materialButtonToggleGroup3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="parent">
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/Gray"
-                    android:textColorHint="@color/White"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
                     android:hint="@string/Add_Test"
-                    />
-            </com.google.android.material.button.MaterialButtonToggleGroup>
+                    android:textColorHint="@color/White"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/materialButtonToggleGroup2"
+                    tools:layout_editor_absoluteX="0dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRegistrerEmploy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Gray"
+                    android:hint="@string/Add_collaborators"
+                    android:textColorHint="@color/White"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/btnTest"
+                    app:layout_constraintTop_toBottomOf="@+id/materialButtonToggleGroup2"
+                    tools:layout_editor_absoluteX="-2dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 

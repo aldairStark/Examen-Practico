@@ -94,6 +94,7 @@ class TestInterface : AppCompatActivity() {
 
                 if (response.isSuccessful){
                     progressBar.visibility=View.GONE
+                    btnApiRest.visibility=View.GONE
                     Toast.makeText(this@TestInterface,"Conexion Exitosa",Toast.LENGTH_SHORT).show()
                     btnDowload.visibility= View.VISIBLE
                     Log.i("Field", response.body()?.file.toString())
