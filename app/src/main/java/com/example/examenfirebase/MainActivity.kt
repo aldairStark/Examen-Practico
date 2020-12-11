@@ -7,6 +7,7 @@ import android.widget.Toolbar
 import com.example.examenfirebase.components.MenuToolbar
 import com.example.examenfirebase.ui.Registrer.EmployeesRegistrer
 import com.example.examenfirebase.ui.interfaces.EmployeesRecyclerView
+import com.example.examenfirebase.ui.interfaces.TestInterface
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
         btnRegistrerEmploy.setOnClickListener({
             ActionEmploy()
         })
+        btnTest.setOnClickListener({
+            ActionTest()
+        })
     }
     private fun ActionEmploy(){
         startActivity(Intent(this,EmployeesRegistrer::class.java))
@@ -29,5 +33,8 @@ class MainActivity : AppCompatActivity() {
     }
     private fun ActionListEmploy(){
         startActivity(Intent(this,EmployeesRecyclerView::class.java))
+    }
+    private fun ActionTest(){
+        startActivity(Intent(this,TestInterface::class.java))
     }
 }

@@ -18,4 +18,5 @@
     <string name="fieldEmpty">Campo Obligatorio</string>
     <string name="Name">Nombre</string>
     <string name="Mail">Mail</string>
+    <string name="Add_Test">Prueba Consumo de servicio</string>
 </resources>

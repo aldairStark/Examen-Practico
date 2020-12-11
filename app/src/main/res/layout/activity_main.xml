@@ -58,6 +58,25 @@
                     android:hint="@string/Add_collaborators"
                     />
             </com.google.android.material.button.MaterialButtonToggleGroup>
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="100dp"
+                >
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Gray"
+                    android:textColorHint="@color/White"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:hint="@string/Add_Test"
+                    />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
