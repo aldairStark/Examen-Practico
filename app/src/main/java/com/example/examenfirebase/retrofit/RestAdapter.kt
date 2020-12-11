@@ -1,4 +1,4 @@
-package com.example.examenfirebase.components
+package com.example.examenfirebase.retrofit
 
 import com.example.examenfirebase.common.Constants
 import com.google.android.gms.common.api.Api

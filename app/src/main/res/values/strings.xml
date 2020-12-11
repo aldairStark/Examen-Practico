@@ -19,4 +19,5 @@
     <string name="Name">Nombre</string>
     <string name="Mail">Mail</string>
     <string name="Add_Test">Prueba Consumo de servicio</string>
+    <string name="Dowload">Descarga</string>
 </resources>

@@ -23,7 +23,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.interfaces.EmployeesRecyclerView"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".ui.interfaces.TestInterface" />
+        <activity android:name=".ui.interfaces.TestInterface"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".ui.Registrer.EmployeesRegistrer"
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".ui.Registrer.Registrer"/>
